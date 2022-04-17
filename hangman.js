@@ -105,6 +105,10 @@ let keyPressEvent = document.addEventListener("keydown", function (event) {
 
   blanks.innerHTML = blanksDisplay; //
 
+  // 1.b. All blanks filled. Victory condition
+  // Solution: If 'no blanks in blanks display', then 'victory text!'
+  // ***JOSH CONTINUE HERE***
+
   // 2. Guesslog interactions. Successful.
   // 2.a. Update guesslog based on input. Successful.
   if (!guessLog.includes(event.key)) {
@@ -125,11 +129,10 @@ let keyPressEvent = document.addEventListener("keydown", function (event) {
     gameOverAnnouncement.innerHTML = "Game Over [said dramatically]";
   }
 
-  // 4.a. maxGuesses countdown. SUCCESSFUL
+  // 4.a. maxGuesses countdown. Successful.
   // Countdown only if user guess is wrong, and for the first time.
   if (!magicArray.includes(event.key)) {
     maxGuesses -= 1;
-    console.log(maxGuesses);
   }
 
   // 4.b. Update maxGuesses display. Successful.
@@ -137,7 +140,13 @@ let keyPressEvent = document.addEventListener("keydown", function (event) {
   numOfTries.innerHTML = maxGuesses;
 });
 
-/* Wordle characterizes its screen keyboard as follows:
+/* 
+* I want the screen keyboard to also work. This requires me to link the letters in the guesslog and letter/blank display to each letter on the keyboard. 
+* It's not obvious how to do this. Link the data in the tag (<button>a</button>) to each letter? I don't know how to refer to "a" in the dom.
+
+Potential solution:
+
+Wordle characterizes its screen keyboard as follows:
   <button data-key="r" data-state="correct" class>r</button>
 or
   <button data-key="p" data-state="correct">p</button>
