@@ -28,15 +28,6 @@
 * * maxGuesses functionality
 * * * maxGuesses countdown
 * * * maxGuesses display
-
-== Desired functionality ==
-a) Take magic string, check if input matches it.
--- does magicString contain "a"? then YES else NO
---- If yes, (a) update log of guessed letters, (b) update blanks, (c) update guesses left. If no, (d) update update log, (e) update guesses left.
-b) Update individual blanks one at a time.
-
-c) Keypress -> inputs.
-d) Keyboard press -> inputs, + color change/disable
 */
 
 // VARIABLES
