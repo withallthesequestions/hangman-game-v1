@@ -56,7 +56,7 @@ function makeBlanks(array) {
     if (array[i] !== " ") {
       blanksDisplay.push("_");
     } else {
-      blanksDisplay.push(" ");
+      blanksDisplay.push(" \xa0 \xa0 "); //UTF-8 non-breaking space
     }
   }
   return blanksDisplay;
@@ -66,7 +66,7 @@ makeBlanks(magicArray);
 // Blanks screen display.
 //Note: Below formatting is proper when using getElementbyID. (assigned to a variable)
 var blanks = document.getElementById("blanks"); // This grabs the element with the ID "blanks"
-blanks.innerHTML = blanksDisplay; //This assigns it the string blanksDisplay.
+blanks.innerHTML = blanksDisplay.join(" "); //This assigns it the array blanksDisplay.
 
 // GUESSLOG FUNCTIONALITY
 // See input functionality > guesslog interactions.
