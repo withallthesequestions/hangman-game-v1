@@ -73,38 +73,65 @@ blanks.innerHTML = blanksDisplay.join(" "); //This assigns it the array blanksDi
 
 // INPUT FUNCTIONALITY
 let keyPressEvent = document.addEventListener("keydown", function (event) {
-  // 1. Blanks functionality: Update blanks based on input. SUCCESSFUL.
+  // Everything goes into a switch statement, to rule out invalid keypresses. The input functionality runs only in case the invalid keys are not triggered.
+  switch (event.key) {
+    case " ":
+      console.log("Invalid key");
+      break;
+    case ",":
+      console.log("Invalid key");
+      break;
+    case ".":
+      console.log("Invalid key");
+      break;
+    case "-":
+      console.log("Invalid key");
+      break;
+    case ":":
+      console.log("Invalid key");
+      break;
+    case "Shift":
+      console.log("Invalid key");
+      break;
+    default: //
+      /* ALL THE FUNKY STUFF GOES IN HERE */
 
-  if (magicString.includes(event.key)) {
-    //Grab the index of event.key in magicString
-    let indexHolder = [];
-    for (i = 0; i < magicString.length; i++) {
-      if (event.key == magicString[i]) {
-        indexHolder.push(i);
-        // console.log(magicString[i] + ", index " + i);
+      // 1. Blanks functionality: Update blanks based on input. SUCCESSFUL.
+      if (magicString.includes(event.key)) {
+        //Grab the index of event.key in magicString
+        let indexHolder = [];
+        for (i = 0; i < magicString.length; i++) {
+          if (event.key == magicString[i]) {
+            indexHolder.push(i);
+            // console.log(magicString[i] + ", index " + i);
+          }
+        }
+        console.log(indexHolder);
+
+        for (element of indexHolder)
+          blanksDisplay.splice(element, 1, magicArray[element]);
       }
-    }
-    console.log(indexHolder);
+      // Blanks screen display.
+      //Note: This is a repeat of code from above. The above version sets the original blanks, this finalizes it after keypresses.
+      var blanks = document.getElementById("blanks");
 
-    for (element of indexHolder)
-      blanksDisplay.splice(element, 1, magicArray[element]);
+      blanks.innerHTML = blanksDisplay;
+
+      // 1.b. All blanks filled. Victory condition
+      // Solution: If 'no blanks in blanks display', then 'victory text!'
+      // ***JOSH CONTINUE HERE***
+
+      // 2. Guesslog interactions. Successful.
+      // 2.a. Update guesslog based on input. Successful.
+      if (!guessLog.includes(event.key)) {
+        guessLog.push(event.key);
+      }
+
+      break;
   }
 
-  // Blanks screen display.
-  //Note: This is a repeat of code from above. The above version sets the original blanks, this finalizes it after keypresses.
-  var blanks = document.getElementById("blanks");
+  /* Testing switch case above */
 
-  blanks.innerHTML = blanksDisplay; //
-
-  // 1.b. All blanks filled. Victory condition
-  // Solution: If 'no blanks in blanks display', then 'victory text!'
-  // ***JOSH CONTINUE HERE***
-
-  // 2. Guesslog interactions. Successful.
-  // 2.a. Update guesslog based on input. Successful.
-  if (!guessLog.includes(event.key)) {
-    guessLog.push(event.key);
-  }
   // 2.b. Guesslog screen display. Successful.
   //Note: The proper formatting of getElementbyID requires assigning it to a variable.
   var guessLogSpan = document.getElementById("guessLogSpan");
