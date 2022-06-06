@@ -73,7 +73,7 @@ blanks.innerHTML = blanksDisplay.join(" "); //This assigns it the array blanksDi
 
 // INPUT FUNCTIONALITY
 let keyPressEvent = document.addEventListener("keydown", function (event) {
-  // Everything goes into a switch statement, to rule out invalid keypresses. The input functionality runs only in case the invalid keys are not triggered.
+  // Everything goes into a switch statement, to rule out invalid keypresses. The input functionality runs only in case the invalid keys are not triggered. Ie, default output.
   switch (event.key) {
     case " ":
       console.log("Invalid key");
@@ -129,8 +129,6 @@ let keyPressEvent = document.addEventListener("keydown", function (event) {
 
       break;
   }
-
-  /* Testing switch case above */
 
   // 2.b. Guesslog screen display. Successful.
   //Note: The proper formatting of getElementbyID requires assigning it to a variable.
