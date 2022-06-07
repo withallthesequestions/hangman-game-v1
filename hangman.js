@@ -137,6 +137,8 @@ let keyPressEvent = document.addEventListener("keydown", function (event) {
 
   // 3. Screen keyboard interactions. TO DO.
   // 3.a. Direct key input
+  // moved to the end, outside the scope of the keypress.
+
   // 3.b. Block keys once letter is pressed.
 
   // 4. maxGuesses Functionality. SUCCESSFUL
@@ -177,3 +179,11 @@ The keys are also located in div rows nested in div keyboard
 
 See this to interact with keys: https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
 */
+
+document.addEventListener("click", function (event) {
+  if (event.target.nodeName == "BUTTON") {
+    console.log(event.target.textContent);
+  }
+});
+
+// Come up with a unified variable that the above keyboard click, as well as keypresses, can all feed into.
